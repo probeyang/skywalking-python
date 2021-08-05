@@ -21,6 +21,7 @@ on:
   push:
     branches:
       - master
+      - test/sanic
   pull_request:
 
 jobs:

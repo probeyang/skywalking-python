@@ -64,6 +64,9 @@ def docker_compose(request, prepare, version):
             time.sleep(10)
             exception = e
     if exception:
+        stdout, stderr = compose.get_logs()
+        print("stdout:\n:{}".format(stdout))
+        print("stderr:\n:{}".format(stderr))
         compose.stop()
         raise Exception("""Wait time exceeded {0} sec. Exception {1}""".format(100, exception))
 
